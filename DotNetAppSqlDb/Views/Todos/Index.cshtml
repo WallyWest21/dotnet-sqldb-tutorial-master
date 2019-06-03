@@ -1,0 +1,66 @@
+﻿@model IEnumerable<DotNetAppSqlDb.Models.Todo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Todos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Done)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Done)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>*@
+
+
+
+<div class="card-columns">
+
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("Edit", new { id = item.ID })" >
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                @*<div class="card-header">@item.Description</div>*@
+                <div class="card-body">
+                    <h5 class="card-title">@item.Description</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <div class="card-footer text-white bg-primary mb-3">@item.CreatedDate</div>
+
+            </div>
+        </a>
+    }
+    </div>
